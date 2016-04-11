@@ -7,29 +7,29 @@ using namespace std;
 
 typedef struct
 {
-    int a, b;
+    int real, imag;
 } complexo_t;
 
 void soma(complexo_t num1, complexo_t num2, complexo_t *soma)
 {
-    soma->a = num1.a + num2.a;
-    soma->b = num1.b + num2.b;
+    soma->real = num1.real + num2.real;
+    soma->imag = num1.imag + num2.imag;
 }
 
 double escalar(complexo_t num1, complexo_t num2)
 {
-    return (num1.a * num2.a) + (num1.b * num2.b);
+    return (num1.real * num2.real) + (num1.imag * num2.imag);
 }
 
 double modulo(complexo_t num)
 {
-    return sqrt(pow(2, num.a) + pow(2, num.b));
+    return sqrt(pow(2, num.real) + pow(2, num.imag));
 }
 
 void produto(complexo_t num1, complexo_t num2, complexo_t *produto)
 {
-    produto->a = ((num1.a * num2.a) - (num1.b * num2.b));
-    produto->b = ((num1.a * num2.b) + (num1.b * num2.a));
+    produto->real = ((num1.real * num2.real) - (num1.imag * num2.imag));
+    produto->b = ((num1.real * num2.imag) + (num1.imag * num2.real));
 }
 
 void quadrado(complexo_t num, complexo_t *quadrado)
@@ -52,29 +52,29 @@ int main(int argc, char const *argv[]) {
             case 0: break;
 
             case 1: system("clear");
-                    cout << "Digite o Num Complexo 1: " << endl << "a: ";
-                    cin >> num1.a;
-                    cout << "b: ";
-                    cin >> num1.b;
-                    cout << "Digite o Num Complexo 2: " << endl << "a: ";
-                    cin >> num2.a;
-                    cout << "b: ";
-                    cin >> num2.b;
+                    cout << "Digite o Num Complexo 1: " << endl << "real: ";
+                    cin >> num1.real;
+                    cout << "imag: ";
+                    cin >> num1.imag;
+                    cout << "Digite o Num Complexo 2: " << endl << "real: ";
+                    cin >> num2.real;
+                    cout << "imag: ";
+                    cin >> num2.imag;
 
                     soma(num1, num2, &s);
 
-                    cout << endl << "Resultado: " << s.a << " + " << s.b << "i" << endl << endl;
+                    cout << endl << "Resultado: " << s.real << " + " << s.imag << "i" << endl << endl;
                     break;
 
             case 2: system("clear");
-                    cout << "Digite o Num Complexo 1: " << endl << "a: ";
-                    cin >> num1.a;
-                    cout << "b: ";
-                    cin >> num1.b;
-                    cout << "Digite o Num Complexo 2: " << endl << "a: ";
-                    cin >> num2.a;
-                    cout << "b: ";
-                    cin >> num2.b;
+                    cout << "Digite o Num Complexo 1: " << endl << "real: ";
+                    cin >> num1.real;
+                    cout << "imag: ";
+                    cin >> num1.imag;
+                    cout << "Digite o Num Complexo 2: " << endl << "real: ";
+                    cin >> num2.real;
+                    cout << "imag: ";
+                    cin >> num2.imag;
 
                     escal = escalar(num1, num2);
 
@@ -82,10 +82,10 @@ int main(int argc, char const *argv[]) {
                     break;
 
             case 3: system("clear");
-                    cout << "Digite o Num Complexo: " << endl << "a: ";
-                    cin >> num1.a;
-                    cout << "b: ";
-                    cin >> num1.b;
+                    cout << "Digite o Num Complexo: " << endl << "real: ";
+                    cin >> num1.real;
+                    cout << "imag: ";
+                    cin >> num1.imag;
 
                     mod = modulo(num1);
 
@@ -93,29 +93,29 @@ int main(int argc, char const *argv[]) {
                     break;
 
             case 4: system("clear");
-                    cout << "Digite o Num Complexo 1: " << endl << "a: ";
-                    cin >> num1.a;
-                    cout << "b: ";
-                    cin >> num1.b;
-                    cout << "Digite o Num Complexo 2: " << endl << "a: ";
-                    cin >> num2.a;
-                    cout << "b: ";
-                    cin >> num2.b;
+                    cout << "Digite o Num Complexo 1: " << endl << "real: ";
+                    cin >> num1.real;
+                    cout << "imag: ";
+                    cin >> num1.imag;
+                    cout << "Digite o Num Complexo 2: " << endl << "real: ";
+                    cin >> num2.real;
+                    cout << "imag: ";
+                    cin >> num2.imag;
 
                     produto(num1, num2, &prod);
 
-                    cout << endl << "Resultado: " << prod.a << " + " << prod.b << "i" << endl << endl;
+                    cout << endl << "Resultado: " << prod.real << " + " << prod.imag << "i" << endl << endl;
                     break;
 
             case 5: system("clear");
-                    cout << "Digite o Num Complexo: " << endl << "a: ";
-                    cin >> num1.a;
-                    cout << "b: ";
-                    cin >> num1.b;
+                    cout << "Digite o Num Complexo: " << endl << "real: ";
+                    cin >> num1.real;
+                    cout << "imag: ";
+                    cin >> num1.imag;
 
                     quadrado(num1, &quad);
 
-                    cout << endl << "Resultado: " << quad.a << " + " << quad.b << "i" << endl << endl;
+                    cout << endl << "Resultado: " << quad.real << " + " << quad.imag << "i" << endl << endl;
                     break;
 
             default: cout << "Opcao Invalida!!" << endl;
