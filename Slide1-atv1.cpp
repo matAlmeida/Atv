@@ -3,6 +3,12 @@
 #include <stdlib.h>
 #include <math.h>
 
+//
+//
+// FAZER SORT FUNCIONAR
+//
+//
+
 using namespace std;
 
 typedef struct
@@ -52,6 +58,34 @@ int comparar(complexo_t num1, complexo_t num2)
         return -1;
     else
         return 1;
+}
+
+void sort(complexo_t* vec, complexo_t* mai, complexo_t* men, int tam)
+{
+    complexo_t maior, menor;
+    int compara;
+    tam--;
+
+    maior = vec[0];
+    menor = vec[0];
+
+    for(int i = 1; i <= tam; i++)
+    {
+        compara = compare(vec[i], maior);
+        if(compara == -1)
+            maior = vec[i];
+        else
+        if(compara == 1){
+            compara = compare(vec[i], menor);
+            if(compara == 1)
+                menor = vec[i];
+        }
+
+    }
+
+    *mai = maior;
+    *men = menor;
+
 }
 
 int main(int argc, char const *argv[]) {
