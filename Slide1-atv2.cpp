@@ -14,9 +14,7 @@ int compare(racional_t num1, racional_t num2)
     double n1, n2;
 
     n1 = num1.num*1.0 / num1.denom*1.0;
-    cout << n1 << endl;
     n2 = num2.num*1.0 / num2.denom*1.0;
-    cout << n2 << endl;
 
     if(n1 == n2)
         return 0; //num1 == num2
