@@ -37,6 +37,23 @@ void quadrado(complexo_t num, complexo_t *quadrado)
     produto(num, num, quadrado);
 }
 
+// 0 -> n1 == n2
+// -1 -> n1 > n2
+// 1 -> n1 < n2
+
+int comparar(complexo_t num1, complexo_t num2)
+{
+    double n1 = modulo(num1);
+    double n2 = modulo(num2);
+    
+    if(n1 == n2)
+        return 0;
+    else if(n1 > n2)
+        return -1;
+    else
+        return 1;
+}
+
 int main(int argc, char const *argv[]) {
 
     int opt;
