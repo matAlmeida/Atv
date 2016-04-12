@@ -47,25 +47,12 @@ void quadrado(complexo_t num, complexo_t *quadrado)
 // -1 -> n1 > n2
 // 1 -> n1 < n2
 
-int comparar(complexo_t num1, complexo_t num2)
+int compare(const void * num1, const void * num2)
 {
-    double n1 = modulo(num1);
-    double n2 = modulo(num2);
-
-    if(n1 == n2)
-        return 0;
-    else if(n1 > n2)
-        return -1;
-    else
-        return 1;
-}
-
-void sort(complexo_t* vec, int tam)
-{
-    complexo_t *vNovo;
-    vNovo = vec;
-
+    double n1 = modulo(*(complexo_t*)num1);
+    double n2 = modulo(*(complexo_t*)num2);
     
+    return n1 - n2;
 }
 
 int main(int argc, char const *argv[]) {
@@ -161,7 +148,7 @@ int main(int argc, char const *argv[]) {
                         cout << "imag: ";
                         cin >> vComplexo[i].imag;
                     }
-                    sort(vComplexo, tam);
+                    qsort(vComplexo, tam, sizeof(complexo_t), compare);
 
             default: cout << "Opcao Invalida!!" << endl;
         }
