@@ -51,7 +51,7 @@ int comparar(complexo_t num1, complexo_t num2)
 {
     double n1 = modulo(num1);
     double n2 = modulo(num2);
-    
+
     if(n1 == n2)
         return 0;
     else if(n1 > n2)
@@ -60,43 +60,24 @@ int comparar(complexo_t num1, complexo_t num2)
         return 1;
 }
 
-void sort(complexo_t* vec, complexo_t* mai, complexo_t* men, int tam)
+void sort(complexo_t* vec, int tam)
 {
-    complexo_t maior, menor;
-    int compara;
-    tam--;
+    complexo_t *vNovo;
+    vNovo = vec;
 
-    maior = vec[0];
-    menor = vec[0];
-
-    for(int i = 1; i <= tam; i++)
-    {
-        compara = compare(vec[i], maior);
-        if(compara == -1)
-            maior = vec[i];
-        else
-        if(compara == 1){
-            compara = compare(vec[i], menor);
-            if(compara == 1)
-                menor = vec[i];
-        }
-
-    }
-
-    *mai = maior;
-    *men = menor;
-
+    
 }
 
 int main(int argc, char const *argv[]) {
 
-    int opt;
+    int opt, tam;
     double escal, mod;
-    complexo_t num1, num2, s, prod, quad;
+    complexo_t num1, num2, s, prod, quad, *vComplexo;
 
     do {
         cout << "Calculadora de Numeros Complexos" << endl;
-        cout << "<1> Soma" << endl << "<2> Escalar" << endl << "<3> Modulo" << endl << "<4> Produto" << endl << "<5> Quadrado" << endl << "<0> Sair" << endl;
+        cout << "<1> Soma" << endl << "<2> Escalar" << endl << "<3> Modulo" << endl;
+        cout << "<4> Produto" << endl << "<5> Quadrado" << endl << "<6> Ordenar" << endl << "<0> Sair" << endl;
         cout << endl << "Escolha uma opcao: ";
         cin >> opt;
         switch (opt) {
@@ -168,6 +149,19 @@ int main(int argc, char const *argv[]) {
 
                     cout << endl << "Resultado: " << quad.real << " + " << quad.imag << "i" << endl << endl;
                     break;
+
+            case 6: system("clear");
+                    cout << "Digite o numero de elementos do vetor de Num Complexo: ";
+                    cin >> tam;
+                    vComplexo = new complexo_t[tam];
+                    for(int i = 0; i < tam; i++)
+                    {
+                        cout << endl << "Posicao " << i+1 << ":" << endl << "real: ";
+                        cin >> vComplexo[i].real;
+                        cout << "imag: ";
+                        cin >> vComplexo[i].imag;
+                    }
+                    sort(vComplexo, tam);
 
             default: cout << "Opcao Invalida!!" << endl;
         }
