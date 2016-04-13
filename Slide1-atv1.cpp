@@ -3,12 +3,6 @@
 #include <stdlib.h>
 #include <math.h>
 
-//
-//
-// FAZER SORT FUNCIONAR
-//
-//
-
 using namespace std;
 
 typedef struct
@@ -32,6 +26,7 @@ double modulo(complexo_t num)
     return sqrt(pow(2, num.real) + pow(2, num.imag));
 }
 
+// Lista 1 - Q 2
 void produto(complexo_t num1, complexo_t num2, complexo_t *produto)
 {
     produto->real = ((num1.real * num2.real) - (num1.imag * num2.imag));
@@ -46,7 +41,7 @@ void quadrado(complexo_t num, complexo_t *quadrado)
 // 0 -> n1 == n2
 // -1 -> n1 > n2
 // 1 -> n1 < n2
-
+// Slide 2
 int compare(const void * num1, const void * num2)
 {
     double n1 = modulo(*(complexo_t*)num1);
