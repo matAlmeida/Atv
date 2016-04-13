@@ -5,9 +5,35 @@
 
 using namespace std;
 
-typedef struct
+typedef struct complexo
 {
     int real, imag;
+
+    complexo& operator=(const complexo& num)
+    {
+        real = num.real;
+        imag = num.imag;
+        return *this;
+    }
+
+    complexo operator+(const complexo& num)
+    {
+        complexo sum;
+        sum.real = real + num.real;
+        sum.imag = imag + num.imag;
+
+        return sum;
+    }
+
+    complexo operator*(const complexo& num)
+    {
+        complexo multi;
+        multi.real = ((real * num.real) - (imag * num.imag));
+        multi.imag = ((real * num.imag) + (imag * num.real));
+        
+        return multi;
+    }
+
 } complexo_t;
 
 void soma(complexo_t num1, complexo_t num2, complexo_t *soma)
@@ -129,7 +155,8 @@ int main(int argc, char const *argv[]) {
                     cout << "imag: ";
                     cin >> num2.imag;
 
-                    produto(num1, num2, &prod);
+                    //produto(num1, num2, &prod);
+                    prod = num1 * num2;
 
                     cout << endl << "Resultado: " << prod.real << " + " << prod.imag << "i" << endl << endl;
 
