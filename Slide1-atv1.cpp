@@ -30,7 +30,7 @@ typedef struct complexo
         complexo multi;
         multi.real = ((real * num.real) - (imag * num.imag));
         multi.imag = ((real * num.imag) + (imag * num.real));
-        
+
         return multi;
     }
 
@@ -61,7 +61,8 @@ void produto(complexo_t num1, complexo_t num2, complexo_t *produto)
 
 void quadrado(complexo_t num, complexo_t *quadrado)
 {
-    produto(num, num, quadrado);
+    *quadrado = num * num;
+    //produto(num, num, quadrado);
 }
 
 // 0 -> n1 == n2
