@@ -35,7 +35,7 @@ double modulo(complexo_t num)
 void produto(complexo_t num1, complexo_t num2, complexo_t *produto)
 {
     produto->real = ((num1.real * num2.real) - (num1.imag * num2.imag));
-    produto->b = ((num1.real * num2.imag) + (num1.imag * num2.real));
+    produto->imag = ((num1.real * num2.imag) + (num1.imag * num2.real));
 }
 
 void quadrado(complexo_t num, complexo_t *quadrado)
@@ -51,7 +51,7 @@ int compare(const void * num1, const void * num2)
 {
     double n1 = modulo(*(complexo_t*)num1);
     double n2 = modulo(*(complexo_t*)num2);
-    
+
     return n1 - n2;
 }
 
@@ -62,6 +62,7 @@ int main(int argc, char const *argv[]) {
     complexo_t num1, num2, s, prod, quad, *vComplexo;
 
     do {
+        system("clear");
         cout << "Calculadora de Numeros Complexos" << endl;
         cout << "<1> Soma" << endl << "<2> Escalar" << endl << "<3> Modulo" << endl;
         cout << "<4> Produto" << endl << "<5> Quadrado" << endl << "<6> Ordenar" << endl << "<0> Sair" << endl;
@@ -83,6 +84,10 @@ int main(int argc, char const *argv[]) {
                     soma(num1, num2, &s);
 
                     cout << endl << "Resultado: " << s.real << " + " << s.imag << "i" << endl << endl;
+
+                    cin.ignore(1024, '\n');
+                    cout << "Pressione ENTER para voltar ao menu...";
+                    cin.get();
                     break;
 
             case 2: system("clear");
@@ -98,6 +103,10 @@ int main(int argc, char const *argv[]) {
                     escal = escalar(num1, num2);
 
                     cout << endl << "Resultado: " << escal << endl << endl;
+
+                    cin.ignore(1024, '\n');
+                    cout << "Pressione ENTER para voltar ao menu...";
+                    cin.get();
                     break;
 
             case 3: system("clear");
@@ -109,6 +118,10 @@ int main(int argc, char const *argv[]) {
                     mod = modulo(num1);
 
                     cout << endl << "Resultado: " << mod << endl << endl;
+
+                    cin.ignore(1024, '\n');
+                    cout << "Pressione ENTER para voltar ao menu...";
+                    cin.get();
                     break;
 
             case 4: system("clear");
@@ -124,6 +137,10 @@ int main(int argc, char const *argv[]) {
                     produto(num1, num2, &prod);
 
                     cout << endl << "Resultado: " << prod.real << " + " << prod.imag << "i" << endl << endl;
+
+                    cin.ignore(1024, '\n');
+                    cout << "Pressione ENTER para voltar ao menu...";
+                    cin.get();
                     break;
 
             case 5: system("clear");
@@ -135,6 +152,10 @@ int main(int argc, char const *argv[]) {
                     quadrado(num1, &quad);
 
                     cout << endl << "Resultado: " << quad.real << " + " << quad.imag << "i" << endl << endl;
+
+                    cin.ignore(1024, '\n');
+                    cout << "Pressione ENTER para voltar ao menu...";
+                    cin.get();
                     break;
 
             case 6: system("clear");
@@ -149,6 +170,14 @@ int main(int argc, char const *argv[]) {
                         cin >> vComplexo[i].imag;
                     }
                     qsort(vComplexo, tam, sizeof(complexo_t), compare);
+
+                    for(int i = 0; i < tam; i++)
+                        cout << vComplexo[i].real << " " << vComplexo[i].imag << "i ";
+
+                    cin.ignore(1024, '\n');
+                    cout << endl << "Pressione ENTER para voltar ao menu...";
+                    cin.get();
+                    break;
 
             default: cout << "Opcao Invalida!!" << endl;
         }
