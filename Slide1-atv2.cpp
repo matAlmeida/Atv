@@ -16,12 +16,10 @@ int compare(racional_t num1, racional_t num2)
     n1 = num1.num*1.0 / num1.denom*1.0;
     n2 = num2.num*1.0 / num2.denom*1.0;
 
-    if(n1 == n2)
-        return 0; //num1 == num2
-    else if (n1 > n2)
-        return -1; // num1 > num2
-    else
-        return 1; // num1 < num2
+    return n1 - n2;
+    //num1 == num2 0
+    // num1 > num2 -1
+    // num1 < num2 1
 
 }
 
