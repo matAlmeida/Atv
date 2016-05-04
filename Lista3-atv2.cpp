@@ -1,6 +1,7 @@
 // g++ Lista3-atv2.cpp -o Lista3-atv2.o
 
 #include <iostream>
+#include <cstdlib>
 
 using namespace std;
 
