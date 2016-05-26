@@ -1,3 +1,4 @@
+#pragma once
 #include <iostream>
 #include <cmath>
 
@@ -15,6 +16,8 @@ public:
     double getArea(Coordenada, Coordenada);
     int getX();
     int getY();
+    void setX(int);
+    void setY(int);
 
 private:
     int x, y;
