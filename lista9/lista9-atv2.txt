@@ -1,0 +1,1 @@
+Caso fosse uma árvore AVL a afirmação estaria correta, pos apos qualquer incerção na arvore ela se balanceia de modo a esta sempre com a menos altura possível, deixando ela sempre com o mesmo tempo de busca.
